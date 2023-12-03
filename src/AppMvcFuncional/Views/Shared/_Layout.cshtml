@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/AppMvcFuncional.styles.css" asp-append-version="true" />
+    
+    <environment include="Development"> <!--Configuração de ambiente - Se for desenvolvimento faça dessa forma-->
+
+    </environment>
+
+    <environment exclude="Development"> <!--Qualquer outro ambiene que não seja desenvolvimento, faça dessa outra forma-->
+
+    </environment>
+
 </head>
 <body>
     <header>
