@@ -19,4 +19,13 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: azure;
+}
+
+.palegreen {
+    background-color: azure;
+}
+
+.form-group {
+    padding-bottom: 10px;
 }
