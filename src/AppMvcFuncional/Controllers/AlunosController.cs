@@ -2,9 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using AppMvcFuncional.Data;
 using AppMvcFuncional.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AppMvcFuncional.Controllers
 {
+    [Authorize]//para navegar o usuário precisa logar
     [Route("meus-alunos")]
     public class AlunosController : Controller
     {
@@ -16,8 +18,11 @@ namespace AppMvcFuncional.Controllers
         }
 
         // GET: Alunos
+        [AllowAnonymous]//permitir que anonimo navegue para index
         public async Task<IActionResult> Index() //Fica com a rota padão meus-alunos
         {
+            ViewBag.Sucesso = "Listagem bem sucedida!";//Ex manutençaõ de estado
+
             return _context.Aluno != null ?
                         View(await _context.Aluno.ToListAsync()) :
                         Problem("Entity set 'ApplicationDbContext.Aluno'  is null.");
@@ -110,6 +115,9 @@ namespace AppMvcFuncional.Controllers
                         throw;
                     }
                 }
+
+                TempData["Sucesso"] = "Aluno editado com sucesso.";//Ex manutençaõ de estado
+
                 return RedirectToAction(nameof(Index));
             }
             return View(aluno);

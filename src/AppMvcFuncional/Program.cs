@@ -19,7 +19,7 @@ builder.Services.AddControllersWithViews();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment()) /*Configuração de ambiente na Program*/
+if (app.Environment.IsDevelopment()) /*Configuraï¿½ï¿½o de ambiente na Program*/
 {
     app.UseMigrationsEndPoint();
 }
